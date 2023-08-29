@@ -20,12 +20,7 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  <scm>
-    <connection>scm:git:git@github.com:ziplet/ziplet.git</connection>
-    <developerConnection>scm:git:git@github.com:ziplet/ziplet.git</developerConnection>
-    <url>git@github.com:ziplet/ziplet.git</url>
-    <tag>HEAD</tag>
-  </scm>
+
   <developers>
     <developer>
       <id>fgaule</id>
@@ -98,11 +93,29 @@
 
   <!-- Maven Central -->
   <distributionManagement>
+    <repository>
+      <id>nexus</id>
+      <url>http://cart:8081/repository/maven-releases/</url>
+    </repository>
     <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <id>nexus</id>
+      <url>http://cart:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>http://cart:8081/repository/maven-public/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
 
   <build>
     <plugins>
